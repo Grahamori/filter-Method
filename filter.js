@@ -2,6 +2,10 @@
 /**
  * To run this file in Gitpod, use the 
  * command node filter.js in the terminal
+ * 
+ * filter() used to filter elements you dont need out of an array
+ * to find objects in an array of objects by targeting a specific property
+ * 
  */
 
 
@@ -20,6 +24,12 @@ const people = [
     age: 18,
   },
 ];
+
+const oldEnough = people.filter(person => person.age >= 21);
+console.log(oldEnough);
+
+const paul = people.filter(p => p.name === "Paul")[0]; //<-- To target first element of array
+console.log(paul);
 
 
 // Complex Filtering
@@ -55,3 +65,8 @@ const students = [
     ]
   },
 ];
+
+const has5YearsExp = skill => skill.yrsExperience >= 5;
+const hasStrongSkills = student => student.skills.filter(has5YearsExp).length > 0;
+const candidates = students.filter(hasStrongSkills);
+console.log(candidates);
